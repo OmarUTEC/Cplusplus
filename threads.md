@@ -93,19 +93,25 @@ En C++, la clase `std::atomic` proporciona una interfaz para trabajar con variab
 #include <atomic>
 #include <thread>
 
+// Declaramos una variable atomica con un valor inicial de 0
 std::atomic<int> variable_atomica(0);
 
+// Funcion que incrementa la variable atomica 10,000 veces
 void incrementa_variable(){
     for(int i=0;i<10000;i++){
+        // Incrementamos la variable atomica
         variable_atomica++;
     }
 }
 
 int main(){
+    // Creamos dos hilos y los ejecutamos
     std::thread th1(incrementa_variable);
     std::thread th2(incrementa_variable);
+    // Esperamos a que los hilos terminen
     th1.join();
     th2.join();
+    // Imprimimos el valor final de la variable atomica
     std::cout<<variable_atomica<<std::endl;
     return 0;
 }
