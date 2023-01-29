@@ -41,6 +41,8 @@ En **C++**, los **mutex** se pueden manejar mediante la clase `std::mutex` de la
 
 **Es importante notar que los mutex son solo útiles para sincronizar el acceso a un recurso compartido entre diferentes hilos, no son necesarios para sincronizar el acceso a un recurso compartido dentro de un solo hilo.**
 
+**Ejemplo de como utilizar un mutex en C++:**
+
 ```c++
 #include <iostream>
 #include <thread>
@@ -77,3 +79,36 @@ En este ejemplo, creamos dos funciones (`funcion1` y `funcion2`) que imprimen un
 En el `main()` creamos dos threads (`t1` y `t2`) que ejecutan las funciones `funcion1` y `funcion2` respectivamente. Al ejecutarse en paralelo, los threads compiten por adquirir el bloqueo del mutex, y solo uno de ellos puede tenerlo en cualquier momento. El otro thread se "duerme" hasta que el bloqueo sea liberado.
 
 **Nota**: El objeto `std::this_thread::sleep_for` es utilizado para simular una tarea que dura un tiempo determinado y no es necesario para el funcionamiento del Mutex.
+
+## Atomic
+
+Los objetos atomic son variables que garantizan la atomicitud de las operaciones que se realizan en ellas. Esto significa que, aunque varios hilos puedan acceder a una variable atómica al mismo tiempo, siempre se asegura que una operación completa en una variable atómica se realice de manera consistente, sin que los cambios realizados por un hilo se vean afectados por los cambios realizados por otro hilo.
+
+En C++, la clase `std::atomic` proporciona una interfaz para trabajar con variables atómicas. Esta clase proporciona varios métodos para realizar operaciones atómicas en las variables, como `store`, `load`, `exchange` y `compare_exchange_weak`.
+
+**Uso de una variable atómica en C++**
+
+```c++
+#include <iostream>
+#include <atomic>
+#include <thread>
+
+std::atomic<int> variable_atomica(0);
+
+void incrementa_variable(){
+    for(int i=0;i<10000;i++){
+        variable_atomica++;
+    }
+}
+
+int main(){
+    std::thread th1(incrementa_variable);
+    std::thread th2(incrementa_variable);
+    th1.join();
+    th2.join();
+    std::cout<<variable_atomica<<std::endl;
+    return 0;
+}
+```
+
+En este ejemplo, creamos una **variable atómica** variable_atomica y dos hilos que incrementan su valor 10000 veces. Al usar una variable atómica, estamos seguros de que el resultado final será 20000, ya que las operaciones de incremento se realizan de manera atómica y no hay riesgo de que los cambios realizados por un hilo se vean afectados por los cambios realizados por otro hilo.
