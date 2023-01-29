@@ -1,7 +1,7 @@
 # Containers in C++
 
 <p align="center">
-  <img src="conntainers2.jpg" />
+  <img src="containers2.jpg" />
 </p>
 
 Los contenedores en C++ son estructuras de datos que almacenan y permiten el acceso y manipulación de colecciones de objetos. La biblioteca estándar de C++ proporciona una serie de contenedores para diferentes usos, como vector, list, deque, array, map y set, que ofrecen diferentes ventajas en términos de tiempo de acceso, tamaño dinámico, capacidad de inserción y eliminación de elementos, entre otras cosas.
@@ -9,7 +9,7 @@ Los contenedores en C++ son estructuras de datos que almacenan y permiten el acc
 Los contenedores se diseñan para ser rápidos, flexibles y fáciles de usar, y se utilizan ampliamente en la programación de C++ para representar y manipular colecciones de objetos de manera eficiente. Además, la biblioteca estándar de C++ también proporciona una amplia gama de algoritmos que pueden usarse con los contenedores, lo que permite realizar tareas como ordenación, búsqueda, filtrado, etc. de manera fácil y eficiente.
 
 <p align="center">
-  <img src="conntainers.jpg" />
+  <img src="containers.jpg" />
 </p>
 
 
