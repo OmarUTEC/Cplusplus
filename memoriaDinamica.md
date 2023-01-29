@@ -1,5 +1,9 @@
 # Memoria Dinamica en C++
 
+<p align="center">
+  <img src="memoryDinamic.png" />
+</p>
+
 La memoria dinámica en C++ se refiere a la asignación de memoria en tiempo de ejecución en lugar de en tiempo de compilación. Esto significa que el tamaño de la memoria asignada no está fijo y puede ser modificado durante la ejecución del programa.
 
 **Formas en las que se puede utilizar la memoria dinámica en C++:**
