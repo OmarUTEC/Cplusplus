@@ -32,3 +32,48 @@ Además de crear y ejecutar un hilo, también puedes esperar a que un hilo termi
 La clase `std::atomic` es una clase plantilla que permite crear variables compartidas entre hilos que son seguras en términos de acceso concurrente.
 
 Mientras que la clase `std::mutex` es una clase que permite controlar el acceso a una sección crítica de código para evitar conflictos de acceso concurrente.
+
+## Mutex
+
+Un **mutex** es un mecanismo de sincronización utilizado para controlar el acceso a un recurso compartido. Es esencialmente una variable booleana que puede ser adquirida (verdadera) o liberada (falsa). Una vez que un hilo adquiere el mutex, los demás hilos que intentan adquirirlo se bloquean hasta que el hilo que lo posee lo libere.
+
+En **C++**, los **mutex** se pueden manejar mediante la clase `std::mutex` de la biblioteca estándar. Para adquirir un mutex, se utiliza el método `lock()` y para liberarlo, se utiliza el método `unlock()`. También se puede utilizar la clase `std::unique_lock` para manejar un mutex de manera más conveniente, ya que esta clase proporciona un mecanismo de bloqueo automático, lo que significa que el mutex se libera automáticamente cuando el objeto `std::unique_lock` se destruye.
+
+**Es importante notar que los mutex son solo útiles para sincronizar el acceso a un recurso compartido entre diferentes hilos, no son necesarios para sincronizar el acceso a un recurso compartido dentro de un solo hilo.**
+
+```c++
+#include <iostream>
+#include <thread>
+#include <mutex>
+
+std::mutex mtx; // Declaramos un objeto mutex llamado "mtx"
+
+void funcion1() {
+    mtx.lock(); // Adquirimos el bloqueo del mutex
+    std::cout << "Soy la función 1 y tengo el bloqueo del mutex" << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(1)); // Esperamos 1 segundo
+    mtx.unlock(); // Liberamos el bloqueo del mutex
+}
+
+void funcion2() {
+    mtx.lock(); // Adquirimos el bloqueo del mutex
+    std::cout << "Soy la función 2 y también tengo el bloqueo del mutex" << std::endl;
+    mtx.unlock(); // Liberamos el bloqueo del mutex
+}
+
+int main() {
+    std::thread t1(funcion1); // Creamos un thread que ejecuta la función 1
+    std::thread t2(funcion2); // Creamos otro thread que ejecuta la función 2
+
+    t1.join(); // Esperamos a que el thread t1 termine
+    t2.join(); // Esperamos a que el thread t2 termine
+
+    return 0;
+}
+```
+
+En este ejemplo, creamos dos funciones (`funcion1` y `funcion2`) que imprimen un mensaje en pantalla y adquieren y liberan el bloqueo del mutex "mtx" utilizando los métodos `lock()` y `unlock()`.
+
+En el `main()` creamos dos threads (`t1` y `t2`) que ejecutan las funciones `funcion1` y `funcion2` respectivamente. Al ejecutarse en paralelo, los threads compiten por adquirir el bloqueo del mutex, y solo uno de ellos puede tenerlo en cualquier momento. El otro thread se "duerme" hasta que el bloqueo sea liberado.
+
+**Nota**: El objeto `std::this_thread::sleep_for` es utilizado para simular una tarea que dura un tiempo determinado y no es necesario para el funcionamiento del Mutex.
