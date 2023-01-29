@@ -6,7 +6,6 @@
 
 C++ es un lenguaje de programación de propósito general desarrollado por Bjarne Stroustrup en 1983.
 
-
 # Referencias Bibliográficas
 
 1. C++ Tutorial - W3Schools: https://www.w3schools.com/cpp/
