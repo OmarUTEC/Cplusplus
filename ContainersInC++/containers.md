@@ -134,3 +134,77 @@ int main()
 ```
 
 **Una lista es un contenedor de plantilla de C++ que almacena una secuencia de elementos del mismo tipo. A diferencia de un vector o un deque, una lista está implementada como una lista doblemente enlazada, lo que significa que los elementos están conectados entre sí mediante punteros. Esto permite agregar y eliminar elementos tanto al inicio como al final de la lista con un tiempo de ejecución constante. En este ejemplo se declara una lista vacía de enteros y se agrega algunos elementos tanto al inicio como al final de la lista utilizando las funciones push_front() y push_back(). Luego se imprime el tamaño de la lista y se itera a través de los elementos de la lista utilizando un bucle for. Finalmente, se elimina el último elemento de la lista utilizando la función pop_back().**
+
+
+# Associative Containers
+
+Los contenedores asociativos son un tipo de contenedor en C++ que permiten almacenar pares clave-valor, en lugar de elementos simples. Los contenedores asociativos incluyen `map`, `unordered_map`, `set` y `unordered_set`. La clave se utiliza como un identificador para cada valor y permite acceder y buscar elementos de manera eficiente. Los contenedores asociativos están diseñados para tener un tiempo de búsqueda y acceso constante, lo que los hace ideales para aplicaciones en las que se requiere un acceso rápido a los elementos basados en una clave. Hay dos tipos principales de contenedores asociativos en C++: los que usan una tabla hash (`unordered_map` y `unordered_set`) y los que usan un árbol de búsqueda binaria (`map` y `set`).
+
+* **map**: Un contenedor que almacena pares key-value en una estructura de árbol de búsqueda binaria, permitiendo un acceso eficiente y un ordenamiento basado en la clave.
+
+```c++
+#include <iostream>
+#include <map>
+
+int main() {
+  // Crear un mapa que almacena valores enteros con claves de cadenas
+  std::map<std::string, int> edades;
+
+  // Agregar elementos al mapa
+  edades["Juan"] = 30;
+  edades["María"] = 25;
+  edades["Pedro"] = 35;
+
+  // Imprimir los elementos del mapa
+  std::cout << "Edad de Juan: " << edades["Juan"] << std::endl;
+  std::cout << "Edad de María: " << edades["María"] << std::endl;
+  std::cout << "Edad de Pedro: " << edades["Pedro"] << std::endl;
+
+  // Modificar un valor en el mapa
+  edades["Juan"] = 31;
+
+  // Imprimir el nuevo valor
+  std::cout << "Nueva edad de Juan: " << edades["Juan"] << std::endl;
+
+  return 0;
+}
+```
+
+* **set**: Un contenedor que almacena claves únicas en una estructura de árbol de búsqueda binaria, permitiendo un acceso eficiente y un ordenamiento basado en la clave.
+
+```c++
+#include <iostream>
+#include <set>
+
+int main() {
+  // Crear un conjunto de enteros
+  std::set<int> numeros;
+
+  // Agregar elementos al conjunto
+  numeros.insert(5);
+  numeros.insert(3);
+  numeros.insert(7);
+
+  // Verificar si un elemento está en el conjunto
+  if (numeros.count(3)) {
+    std::cout << "El número 3 está en el conjunto" << std::endl;
+  }
+
+  // Recorrer y mostrar los elementos del conjunto
+  for (int numero : numeros) {
+    std::cout << numero << " ";
+  }
+  std::cout << std::endl;
+
+  return 0;
+}
+
+/*
+El número 3 está en el conjunto
+3 5 7
+*/
+```
+
+* **unordered_map**: Un contenedor que almacena pares clave-valor en una tabla hash, permitiendo un acceso rápido basado en la clave sin un ordenamiento específico.
+
+* **unordered_set**: Un contenedor que almacena claves únicas en una tabla hash, permitiendo un acceso rápido basado en la clave sin un ordenamiento específico.
