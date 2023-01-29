@@ -26,7 +26,7 @@ Los punteros se utilizan comúnmente para:
 * El operador * se utiliza para obtener el valor al que apunta un puntero.
 * El operador & se utiliza para obtener la dirección de memoria de una variable.
 * El operador -> se utiliza para acceder a los miembros de un objeto a través de un puntero al objeto.
-* El operador [] se utiliza para acceder a los elementos de un array a través de un puntero al array.
+* El operador [ ] se utiliza para acceder a los elementos de un array a través de un puntero al array.
 
 5. **Ejemplo de uso de punteros**
 
