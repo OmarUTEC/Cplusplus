@@ -208,3 +208,134 @@ El número 3 está en el conjunto
 * **unordered_map**: Un contenedor que almacena pares clave-valor en una tabla hash, permitiendo un acceso rápido basado en la clave sin un ordenamiento específico.
 
 * **unordered_set**: Un contenedor que almacena claves únicas en una tabla hash, permitiendo un acceso rápido basado en la clave sin un ordenamiento específico.
+
+
+# Container adapters
+
+Los contenedores adaptadores son estructuras de datos en C++ que se adaptan a los contenedores de la biblioteca estándar para ofrecer un comportamiento específico. Los contenedores adaptadores incluyen:
+
+* **stack**: una pila LIFO (last-in, first-out) que permite operaciones como `push`, `pop`, y `top` para agregar, eliminar y acceder al elemento en la parte superior de la pila, respectivamente.
+
+```c++
+#include <iostream>
+#include <stack>
+
+int main() {
+  std::stack<int> s;
+
+  // Agregar elementos a la pila
+  s.push(1);
+  s.push(2);
+  s.push(3);
+
+  std::cout << "Tamaño de la pila: " << s.size() << std::endl;
+
+  // Acceder al elemento en la parte superior de la pila
+  std::cout << "Parte superior de la pila: " << s.top() << std::endl;
+
+  // Eliminar elementos de la pila
+  s.pop();
+  s.pop();
+  s.pop();
+
+  std::cout << "Tamaño de la pila después de eliminar elementos: " << s.size() << std::endl;
+
+  return 0;
+}
+
+/*
+Tamaño de la pila: 3
+Parte superior de la pila: 3
+Tamaño de la pila después de eliminar elementos: 0
+*/
+```
+
+* **queue**: una cola FIFO (first-in, first-out) que permite operaciones como `push`, `pop`, y `front` para agregar, eliminar y acceder al elemento en la parte frontal de la cola, respectivamente.
+
+```c++
+#include <iostream>
+#include <queue>
+
+int main() {
+  std::queue<int> q;
+
+  // Agregar elementos a la cola
+  q.push(1);
+  q.push(2);
+  q.push(3);
+
+  std::cout << "Tamaño de la cola: " << q.size() << std::endl;
+
+  // Acceder al elemento en la parte frontal de la cola
+  std::cout << "Parte frontal de la cola: " << q.front() << std::endl;
+
+  // Eliminar elementos de la cola
+  q.pop();
+  q.pop();
+  q.pop();
+
+  std::cout << "Tamaño de la cola después de eliminar elementos: " << q.size() << std::endl;
+
+  return 0;
+}
+
+/*
+Tamaño de la cola: 3
+Parte frontal de la cola: 1
+Tamaño de la cola después de eliminar elementos: 0
+*/
+```
+
+* **priority_queue**: Una cola de prioridad que permite acceder al elemento con la mayor prioridad en todo momento.
+
+```c++
+#include <iostream>
+#include <queue>
+
+int main() {
+  std::priority_queue<int> q;
+
+  // Agregar elementos a la cola con prioridad
+  q.push(3);
+  q.push(1);
+  q.push(2);
+
+  std::cout << "Tamaño de la cola con prioridad: " << q.size() << std::endl;
+
+  // Acceder al elemento con mayor prioridad
+  std::cout << "Elemento con mayor prioridad: " << q.top() << std::endl;
+
+  // Eliminar elementos de la cola con prioridad
+  q.pop();
+  q.pop();
+  q.pop();
+
+  std::cout << "Tamaño de la cola con prioridad después de eliminar elementos: " << q.size() << std::endl;
+
+  return 0;
+}
+/*
+Tamaño de la cola con prioridad: 3
+Elemento con mayor prioridad: 3
+Tamaño de la cola con prioridad después de eliminar elementos: 0
+*/
+```
+
+
+**Los contenedores adaptadores son más ligeros y más fáciles de usar que los contenedores de la biblioteca estándar para algunos casos de uso específicos. Sin embargo, carecen de muchas de las características y funcionalidades avanzadas que ofrecen los contenedores de la biblioteca estándar.**
+
+# stack vs queue
+
+* **stack**: Acceso LIFO (Last-In First-Out). El último elemento agregado es el primero en ser eliminado.
+
+* **queue**: Acceso FIFO (First-In First-Out). El primer elemento agregado es el primero en ser eliminado.
+
+**Por lo tanto, en una pila, se accede al elemento en la parte superior, mientras que en una cola, se accede al elemento en la parte frontal. Ambas estructuras permiten agregar y eliminar elementos, pero la forma en que se accede a los elementos es diferente.**
+
+# priority_queue vs queue
+
+* **queue** es una cola FIFO (First-In First-Out), lo que significa que los elementos se acceden en el orden en que fueron agregados.
+
+* **priority_queue** es una cola con prioridad, lo que significa que los elementos se acceden en función de su prioridad, no en el orden en que fueron agregados. La prioridad se determina mediante un comparador que se pasa como un argumento opcional al momento de crear la cola. Por defecto, la prioridad se determina mediante un comparador que ordena los elementos de mayor a menor.
+
+**Por lo tanto, en una `priority_queue`, el elemento con mayor prioridad se accede en todo momento mediante la función `top()`, mientras que en una `queue`, el elemento se accede mediante la función `front()`. Ambas estructuras permiten agregar y eliminar elementos, pero la forma en que se accede a los elementos es diferente.**
