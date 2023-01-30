@@ -334,16 +334,22 @@ Tamaño de la cola con prioridad después de eliminar elementos: 0
 
 # stack vs queue
 
-* **stack**: Acceso LIFO (Last-In First-Out). El último elemento agregado es el primero en ser eliminado.
+| Stack | Queue |
+|-------|-------|
+| Los elementos se apilan en el orden en que se agregaron | Los elementos se encolan en el orden en que se agregaron |
+| El último elemento agregado es el primero en ser retirado (LIFO) | El primer elemento agregado es el primero en ser retirado (FIFO) |
+| Se utiliza en casos de recursión y evaluación de expresiones | Se utiliza en casos de procesamiento en cola y búsqueda en anchura |
 
-* **queue**: Acceso FIFO (First-In First-Out). El primer elemento agregado es el primero en ser eliminado.
 
 **Por lo tanto, en una pila, se accede al elemento en la parte superior, mientras que en una cola, se accede al elemento en la parte frontal. Ambas estructuras permiten agregar y eliminar elementos, pero la forma en que se accede a los elementos es diferente.**
 
 # priority_queue vs queue
 
-* **queue** es una cola FIFO (First-In First-Out), lo que significa que los elementos se acceden en el orden en que fueron agregados.
+| Queue | Priority Queue |
+|-------|----------------|
+| Los elementos se encolan en el orden en que se agregaron | Los elementos se encolan en función de su prioridad |
+| El primer elemento agregado es el primero en ser retirado (FIFO) | El elemento con la mayor prioridad es el primero en ser retirado |
+| No tiene en cuenta la prioridad de los elementos | Se utiliza en casos en los que los elementos tienen una prioridad diferente |
 
-* **priority_queue** es una cola con prioridad, lo que significa que los elementos se acceden en función de su prioridad, no en el orden en que fueron agregados. La prioridad se determina mediante un comparador que se pasa como un argumento opcional al momento de crear la cola. Por defecto, la prioridad se determina mediante un comparador que ordena los elementos de mayor a menor.
 
 **Por lo tanto, en una `priority_queue`, el elemento con mayor prioridad se accede en todo momento mediante la función `top()`, mientras que en una `queue`, el elemento se accede mediante la función `front()`. Ambas estructuras permiten agregar y eliminar elementos, pero la forma en que se accede a los elementos es diferente.**
