@@ -16,7 +16,7 @@ Los contenedores se diseñan para ser rápidos, flexibles y fáciles de usar, y 
 # Seqence Containers
 
 <p align="center">
-  <img src="Seqence.png" />
+  <img src="Sequence.png" />
 </p>
 
 Los contenedores secuenciales en C++ son aquellos que mantienen los elementos en un orden secuencial y proporcionan acceso eficiente a los elementos a lo largo de la secuencia.
