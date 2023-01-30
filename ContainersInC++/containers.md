@@ -15,6 +15,10 @@ Los contenedores se diseñan para ser rápidos, flexibles y fáciles de usar, y 
 
 # Seqence Containers
 
+<p align="center">
+  <img src="Seqence.png" />
+</p>
+
 Los contenedores secuenciales en C++ son aquellos que mantienen los elementos en un orden secuencial y proporcionan acceso eficiente a los elementos a lo largo de la secuencia.
 
 * **Vector**: Un contenedor dinámico que mantiene sus elementos en un orden secuencial y proporciona acceso constante a ellos.
@@ -211,6 +215,10 @@ El número 3 está en el conjunto
 
 
 # Container adapters
+
+<p align="center">
+  <img src="Adaptive.png" />
+</p>
 
 Los contenedores adaptadores son estructuras de datos en C++ que se adaptan a los contenedores de la biblioteca estándar para ofrecer un comportamiento específico. Los contenedores adaptadores incluyen:
 
