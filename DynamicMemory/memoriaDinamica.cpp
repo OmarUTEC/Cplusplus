@@ -23,6 +23,7 @@ int main() {
 
 
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -113,7 +114,7 @@ int main() {
     // Creamos un objeto de la clase "MiClase"
     MiClase obj;
     obj.setValor(5);
-    // Imprimiendo el valor almacenado en el entero
+    // Imprimiendo el valor almacenado en el entero.
     cout << obj.getValor() << endl;
     return 0;
 }
