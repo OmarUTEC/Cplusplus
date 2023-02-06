@@ -1,4 +1,5 @@
-# C++
+# Programación Genérica y Paralela
+# C++ 
 
 <p align="center">
   <img src="C.jpg" />
